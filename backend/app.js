@@ -13,7 +13,7 @@ const funcionesReserva = require("./services/reservaServices")
 
 
 const corsOptions = {
-    origin: 'http://localhost:3000', 
+    origin: '*', 
     optionsSuccessStatus: 200 
 };
 
@@ -483,4 +483,3 @@ DBInit().then(() =>
 
 module.exports = {sequelize, app, Jugadores, Equipos, Partidos, Estadisticas, Estadio, Reserva}
 
-npm install -g serve
