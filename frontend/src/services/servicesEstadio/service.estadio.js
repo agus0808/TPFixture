@@ -1,4 +1,4 @@
-const URL = "http://localhost:3001/estadios"
+const URL = "http://localhost:8080/estadios"
 
 const getAll = async(filter) => {
     const url = (filter)?URL+"?nombre="+filter:URL

@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const URL = "http://localhost:3001/equipos"
+const URL = "http://localhost:8080/equipos"
 
 
 const getAll = async(filter) => {

@@ -1,4 +1,4 @@
-const URL = "http://localhost:3001/estadisticas"
+const URL = "http://localhost:8080/estadisticas"
 
 
 const getAll = async(filter) => {

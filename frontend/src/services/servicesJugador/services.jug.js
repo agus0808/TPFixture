@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const URL = "http://localhost:3001/jugadores"
+const URL = "http://localhost:8080/jugadores"
 
 
 const getAll = async(filter) => {
@@ -11,7 +11,7 @@ const getAll = async(filter) => {
 
 const getNombresEquipos = async() => {
 
-    const urlNueva = "http://localhost:3001/equipos"
+    const urlNueva = "http://localhost:8080/equipos"
     const res = await axios.get(urlNueva)
     const datos = res.data
     return datos.map((e) => {

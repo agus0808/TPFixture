@@ -1,4 +1,4 @@
-const URL = "http://localhost:3001/reservas"
+const URL = "http://localhost:8080/reservas"
 
 const getAll = async(filter) => {
     let url = URL
