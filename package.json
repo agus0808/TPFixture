@@ -1,0 +1,12 @@
+{
+    "name": "tpifixture",
+    "version": "1.0.0",
+    "scripts": {
+        "start:frontend": "cd tpfixture/frontend && npm start",
+        "start:backend": "cd tpfixture/backend && npm start",
+        "start": "concurrently \"npm run start:frontend\" \"npm run start:backend\""
+    },
+    "dependencies": {
+        "concurrently": "^7.6.0"
+    }
+}
