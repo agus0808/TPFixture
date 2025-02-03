@@ -13,7 +13,6 @@
     "react-hook-form": "^7.52.0",
     "react-router-dom": "^6.23.1",
     "react-scripts": "5.0.1",
-    "tpifixture": "file:..",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
