@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "jest --testTimeout=10000 --detectOpenHandles --force-exit",
-    "test:jsmodule": "node --experimental-vm-modules jest --verbose --silent --"
+    "test:jsmodule": "node --experimental-vm-modules jest --verbose --silent --",
+    "start": "node app.js"
   },
   "devDependencies": {
     "chai": "^4.4.1",
@@ -22,7 +23,6 @@
     "pg": "^8.13.1",
     "sequelize": "^6.37.3",
     "sqlite3": "^5.1.7",
-    "supertest": "^7.0.0",
-    "tpifixture": "file:.."
+    "supertest": "^7.0.0"
   }
 }
