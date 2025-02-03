@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --testTimeout=10000 --detectOpenHandles --force-exit",
     "test:jsmodule": "node --experimental-vm-modules jest --verbose --silent --",
-    "start": "node app.js"
+    "start": "node backend/app.js"
   },
   "devDependencies": {
     "chai": "^4.4.1",
