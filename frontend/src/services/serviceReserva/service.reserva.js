@@ -1,4 +1,5 @@
-const URL = "http://localhost:8080/reservas"
+const API_URL ="app-d3332d36-f917-4f80-b18d-b7f2d7e14f00.cleverapps.io"
+const URL = `${API_URL}/reservas`
 
 const getAll = async(filter) => {
     let url = URL
