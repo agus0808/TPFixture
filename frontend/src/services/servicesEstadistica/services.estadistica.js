@@ -1,5 +1,5 @@
-const API_URL ="app-d3332d36-f917-4f80-b18d-b7f2d7e14f00.cleverapps.io"
-const URL = `${API_URL}/estadisticas`
+const URL = "https://app-d3332d36-f917-4f80-b18d-b7f2d7e14f00.cleverapps.io/estadisticas"
+
 const getAll = async(filter) => {
 
     const url = (filter)?URL+"?partido_id="+filter:URL

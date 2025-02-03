@@ -1,13 +1,18 @@
 import axios from "axios"
-const API_URL ="app-d3332d36-f917-4f80-b18d-b7f2d7e14f00.cleverapps.io"
-const URL = `${API_URL}/equipos`
+const URL = "https://app-d3332d36-f917-4f80-b18d-b7f2d7e14f00.cleverapps.io/equipos";
 
 
 const getAll = async(filter) => {
-
-    const url = (filter)?URL+"?nombre="+filter:URL
-    const res = await axios.get(url)
-    return res
+    const url = (filter) ? URL + "?nombre=" + filter : URL;
+    console.log("url",url)
+    try {
+        const res = await axios.get(url);
+        return res;
+    } catch (error) {
+        console.error('Error en la solicitud GET:', error);
+        // Aquí puedes ver el error completo para más detalles
+        throw error;
+    }
 }
 
 const save = async(data) => {
