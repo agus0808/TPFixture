@@ -1,5 +1,5 @@
-const URL = "http://localhost:8080/partidos"
-
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8080";
+const URL = `${API_URL}/partidos`
 
 const getAll = async(filter) => {
     let url = URL

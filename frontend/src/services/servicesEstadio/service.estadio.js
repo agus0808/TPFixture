@@ -1,4 +1,6 @@
-const URL = "http://localhost:8080/estadios"
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8080";
+const URL = `${API_URL}/estadios`
+
 
 const getAll = async(filter) => {
     const url = (filter)?URL+"?nombre="+filter:URL

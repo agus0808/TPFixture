@@ -1,6 +1,6 @@
 import axios from "axios"
-
-const URL = "http://localhost:8080/equipos"
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8080";
+const URL = `${API_URL}/equipos`
 
 
 const getAll = async(filter) => {

@@ -1,7 +1,7 @@
 import axios from "axios"
 
-const URL = "http://localhost:8080/jugadores"
-
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8080";
+const URL = `${API_URL}/jugadores`
 
 const getAll = async(filter) => {
     const url = (filter)?URL+"?nombre="+filter:URL
@@ -11,7 +11,7 @@ const getAll = async(filter) => {
 
 const getNombresEquipos = async() => {
 
-    const urlNueva = "http://localhost:8080/equipos"
+    const urlNueva = `${API_URL}/equipos`
     const res = await axios.get(urlNueva)
     const datos = res.data
     return datos.map((e) => {

@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors")
 const {sequelize} = require("./data/dbInit")
+const path = require("path")
 
 const {Equipos, Jugadores, Estadisticas, Partidos, Estadio, Reserva} = require("./tablas/relaciones")
 
@@ -19,8 +20,13 @@ const corsOptions = {
 
 
 const app = express();
-app.use(express.json());
 app.use(cors(corsOptions));
+
+// Middleware para parsear JSON
+app.use(express.json());
+
+// Servir archivos estáticos de React
+app.use(express.static(path.join(__dirname, 'build')));app.use(cors(corsOptions));
 
 
 // Para EQUIPOS
@@ -56,6 +62,9 @@ app.post("/equipos", async (req, res) => {
     }
 })
 
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 app.put("/equipos/:id", async (req, res) => {
 
