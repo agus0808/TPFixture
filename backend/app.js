@@ -373,17 +373,22 @@ app.delete("/reservas/:id", async (req, res) => {
 
 
 async function DBInit() {
-    await Equipos.bulkCreate([
-        { nombre : "Instituto", ciudad : "Cordoba", fechaFundacion: '1918-08-08'},
-        { nombre : "Talleres", ciudad : "Cordoba", fechaFundacion: '1000-08-08'},
-        { nombre : "River", ciudad : "Cordoba", fechaFundacion: '1918-08-08'},
-        { nombre : "Boca", ciudad : "Cordoba", fechaFundacion: '1918-08-08'},
-        { nombre : "Racing", ciudad : "Cordoba", fechaFundacion: '1918-08-08'},
-        { nombre : "Independiente", ciudad : "Cordoba", fechaFundacion: '1918-08-08'},
-        { nombre : "SanLorenzo", ciudad : "Cordoba", fechaFundacion: '1918-08-08'},
-        { nombre : "Huracán", ciudad : "Cordoba", fechaFundacion: '1918-08-08'},
-        { nombre : "Quilmes", ciudad : "Cordoba", fechaFundacion: '1918-08-08'},
-    ]);
+    const existingRecords = await Equipos.findAll({ limit: 1 }); 
+    if (existingRecords.length === 0) {
+        await Equipos.bulkCreate([
+            { nombre : "Instituto", ciudad : "Cordoba", fechaFundacion: '1918-08-08'},
+            { nombre : "Talleres", ciudad : "Cordoba", fechaFundacion: '1000-08-08'},
+            { nombre : "River", ciudad : "Cordoba", fechaFundacion: '1918-08-08'},
+            { nombre : "Boca", ciudad : "Cordoba", fechaFundacion: '1918-08-08'},
+            { nombre : "Racing", ciudad : "Cordoba", fechaFundacion: '1918-08-08'},
+            { nombre : "Independiente", ciudad : "Cordoba", fechaFundacion: '1918-08-08'},
+            { nombre : "SanLorenzo", ciudad : "Cordoba", fechaFundacion: '1918-08-08'},
+            { nombre : "Huracán", ciudad : "Cordoba", fechaFundacion: '1918-08-08'},
+            { nombre : "Quilmes", ciudad : "Cordoba", fechaFundacion: '1918-08-08'},
+        ]);}
+
+    const existenPar = await Partidos.findAll({ limit: 1 }); 
+    if (existenPar.length === 0) {
     await Partidos.bulkCreate([
         {fecha: '1918-08-08', resultado: "2-1", equipo_local: 1, equipo_visitante: 5 },
         {fecha: '1918-12-08', resultado: "0-1", equipo_local: 4, equipo_visitante: 7 },
@@ -391,9 +396,10 @@ async function DBInit() {
         {fecha: '1920-05-08', resultado: "2-0", equipo_local: 6, equipo_visitante: 1 },
         {fecha: '1956-08-06', resultado: "1-1", equipo_local: 2, equipo_visitante: 5 },
         {fecha: '1923-07-30', resultado: "8-1", equipo_local: 3, equipo_visitante: 1 }
-    ]
+    ])}
 
-    )
+    const existenJug = await Jugadores.findAll({ limit: 1 }); 
+    if (existenJug.length === 0) {
     await Jugadores.bulkCreate([
         { nombre: "Jugador 1", fechaNacimiento: "1990-01-01", lugarNacimiento: "Ciudad 1", edad: 30, equipo_id: 1 },
         { nombre: "Jugador 2", fechaNacimiento: "1991-02-02", lugarNacimiento: "Ciudad 2", edad: 29, equipo_id: 2 },
@@ -437,14 +443,18 @@ async function DBInit() {
         { nombre: "Jugador 40", fechaNacimiento: "1999-10-10", lugarNacimiento: "Ciudad 40", edad: 21, equipo_id: 1 },
         { nombre: "Jugador 41", fechaNacimiento: "2000-11-11", lugarNacimiento: "Ciudad 41", edad: 20, equipo_id: 2 },
 
-    ])
+    ])}
 
+    const existenEsta = await Estadisticas.findAll({ limit: 1 }); 
+    if (existenEsta.length === 0) {
     await Estadisticas.bulkCreate([
         {cant_goles: 5, cant_asistencias: 2, jugador_id: 3, partido_id: 6},
         {cant_goles: 3, cant_asistencias: 1, jugador_id: 6, partido_id: 6},
         {cant_goles: 2, cant_asistencias: 2, jugador_id: 1, partido_id: 1}
-    ])
+    ])}
 
+    const existenEstadios = await Estadio.findAll({ limit: 1 }); 
+    if (existenEstadios.length === 0) {
     await Estadio.bulkCreate([
         {nombre: "Estadio 1", capacidad: 300, fechaConstruccion: "1978-10-06", equipo_id: 1},
         {nombre: "Estadio 2", capacidad: 180, fechaConstruccion: "1991-01-07", equipo_id: 2},
@@ -455,8 +465,10 @@ async function DBInit() {
         {nombre: "Estadio 7", capacidad: 150, fechaConstruccion: "1946-01-10", equipo_id: 7},
         {nombre: "Estadio 8", capacidad: 180, fechaConstruccion: "1950-05-10", equipo_id: 8},
         {nombre: "Estadio 9", capacidad: 300, fechaConstruccion: "1980-12-06", equipo_id: 9},
-    ])
+    ])}
     
+    const existenRe = await Reserva.findAll({ limit: 1 }); 
+    if (existenRe.length === 0) {
     await Reserva.bulkCreate([
         {hora: "14:30", fechaReserva: "2023-10-06", estadio_id: 1},
         {hora: "14:35", fechaReserva: "2023-10-06", estadio_id: 1},
@@ -477,7 +489,7 @@ async function DBInit() {
         {hora: "20:49", fechaReserva: "2023-10-10", estadio_id: 7},
         {hora: "20:30", fechaReserva: "2023-10-10", estadio_id: 7},
         {hora: "21:00", fechaReserva: "2023-10-10", estadio_id: 7},
-    ])
+    ])}
 
 };
 
