@@ -1,12 +1,13 @@
 const { Sequelize } = require("sequelize");
 require("dotenv").config(); // Carga variables del archivo .env
+
 const sequelize = new Sequelize(
-  process.env.MYSQL_DATABASE, 
-  process.env.MYSQL_USER, 
-  process.env.MYSQL_PASSWORD,
+  "byx11mfgs43epsa3hvql",  // Reemplaza con tu base de datos
+  "uumge215csmsmy48",       // Reemplaza con tu usuario
+  "RDsK7WWdMlJqZLbTdRFE",   // Reemplaza con tu contraseña
   {
-    host: process.env.MYSQL_HOST,
-    port: process.env.MYSQL_PORT,
+    host: "byx11mfgs43epsa3hvql-mysql.services.clever-cloud.com",  // Reemplaza con tu host
+    port: 3306,
     dialect: "mysql",
     logging: false,
     define: {
